@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Covid-19 Dashboard</string>
+
+    <string name="confirmed_text">Confirmed</string>
+    <string name="recovered_text">Recovered</string>
+    <string name="death_text">Death</string>
+    <string name="country_text">Region/Country:</string>
+    <string name="total_format">Total: %s</string>
+    <string name="new_format">New: %s</string>
+    <string name="updated_format">Updated on: %s</string>
+    <string name="made_by_format">Made by: %s</string>
+
+    <string name="choose_country_region">Choose Country/Region:</string>
+    <string name="change_region">Change Region</string>
+    <string name="about">About</string>
+
+    <string name="default_notification_channel_id">0</string>
+    <string name="default_notification_channel_name">COVID-19 notification</string>
+    <string name="last_updated_format">Last Updated : %s</string>
+    <string name="notification_title_format">Total Global cases: %s</string>
+    <string name="notification_content_title_on_data_fetch_failure">Check updates</string>
+    <string name="search">Search</string>
+    <string name="search_content_description">Search for Country</string>
+    <string name="choose_region">Choose Region</string>
+
+</resources>
