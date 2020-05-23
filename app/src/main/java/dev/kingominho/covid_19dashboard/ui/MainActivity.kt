@@ -1,7 +1,8 @@
-package dev.kingominho.covid_19dashboard
+package dev.kingominho.covid_19dashboard.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import dev.kingominho.covid_19dashboard.R
 
 class MainActivity : AppCompatActivity() {
 
