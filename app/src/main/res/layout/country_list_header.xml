@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/header_text"
+    android:layout_width="match_parent"
+    android:padding="@dimen/margin_small"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/margin_default"
+    android:layout_marginTop="@dimen/margin_default"
+    android:layout_marginEnd="@dimen/margin_default"
+    android:layout_marginBottom="@dimen/margin_default"
+    android:background="@color/primaryLightColor"
+    android:text="@string/choose_country_region"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:textColor="@color/primaryTextColor" />

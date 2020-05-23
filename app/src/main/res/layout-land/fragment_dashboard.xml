@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="dev.kingominho.covid_19dashboard.ui.dashboard.DashboardViewModel" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:paddingBottom="@dimen/margin_extra_large"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/country_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_extra_large"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:text="@string/country_text"
+                    android:textSize="@dimen/text_large"
+                    app:layout_constraintBottom_toTopOf="@id/choose_region"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/selected_region"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_default"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:text="@{viewModel.selectedCountry.countryName}"
+                    android:textSize="@dimen/text_title"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_end_25"
+                    app:layout_constraintStart_toStartOf="@id/country_header"
+                    app:layout_constraintTop_toBottomOf="@id/country_header"
+                    tools:text="United Arab Emirates United Kingdom United States" />
+
+
+                <Button
+                    android:id="@+id/choose_region"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_default"
+                    android:onClick="@{()->viewModel.onButtonClicked()}"
+                    android:text="@string/change_region"
+                    app:layout_constraintBottom_toBottomOf="@id/selected_region"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/guideline_end_25"
+                    app:layout_constraintTop_toTopOf="@id/selected_region" />
+
+                <TextView
+                    android:id="@+id/update_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:text="@{@string/updated_format(viewModel.selectedCountry.date)}"
+                    android:textSize="@dimen/text_middle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/choose_region"
+                    tools:text="Updated on: 19th May, 2020 06:50 P.M." />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/confirmed_card"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/margin_extra_large"
+                    android:layout_marginTop="@dimen/margin_extra_large"
+                    android:layout_marginEnd="@dimen/margin_extra_large"
+                    app:cardCornerRadius="@dimen/card_corner"
+                    app:cardElevation="@dimen/default_elevation"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/update_date">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/title_confirmed"
+                            style="@style/cardStyle.Title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/confirmed_text"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/icon_confirmed"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:src="@drawable/ic_confirmed_24px"
+                            app:layout_constraintBottom_toTopOf="@id/text_total_confirmed"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/title_confirmed" />
+
+                        <TextView
+                            android:id="@+id/text_total_confirmed"
+                            style="@style/cardStyle.MiddleText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:formattedTotal="@{viewModel.selectedCountry.totalConfirmed}"
+                            app:layout_constraintBottom_toTopOf="@id/text_new_confirmed"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            tools:text="Total: 1230033" />
+
+                        <TextView
+                            android:id="@+id/text_new_confirmed"
+                            style="@style/cardStyle.BottomText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:formattedNew="@{viewModel.selectedCountry.newConfirmed}"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            tools:text="New: 500" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.50" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/recovered_card"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/margin_extra_large"
+                    android:layout_marginEnd="@dimen/margin_extra_large"
+                    app:cardCornerRadius="@dimen/card_corner"
+
+                    app:cardElevation="@dimen/default_elevation"
+                    app:layout_constraintBottom_toBottomOf="@id/confirmed_card"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/guideline_vertical"
+                    app:layout_constraintTop_toTopOf="@id/confirmed_card">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/title_recovered"
+                            style="@style/cardStyle.Title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/recovered_text"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/icon_recovered"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:src="@drawable/ic_recovered_24px"
+                            app:layout_constraintBottom_toTopOf="@id/text_total_recovered"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/title_recovered" />
+
+                        <TextView
+                            android:id="@+id/text_total_recovered"
+                            style="@style/cardStyle.MiddleText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:formattedTotal="@{viewModel.selectedCountry.totalRecovered}"
+                            app:layout_constraintBottom_toTopOf="@id/text_new_recovered"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            tools:text="Total: 1230033" />
+
+                        <TextView
+                            android:id="@+id/text_new_recovered"
+                            style="@style/cardStyle.BottomText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:formattedNew="@{viewModel.selectedCountry.newRecovered}"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            tools:text="New: 500" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_start_25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.25" />
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/death_card"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/margin_extra_large"
+                    app:cardCornerRadius="@dimen/card_corner"
+                    app:cardElevation="@dimen/default_elevation"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_end_25"
+                    app:layout_constraintStart_toEndOf="@id/guideline_start_25"
+                    app:layout_constraintTop_toBottomOf="@id/confirmed_card">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/title_death"
+                            style="@style/cardStyle.Title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/death_text"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/icon_death"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:src="@drawable/ic_death_24px"
+                            app:layout_constraintBottom_toTopOf="@id/text_total_death"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/title_death" />
+
+                        <TextView
+                            android:id="@+id/text_total_death"
+                            style="@style/cardStyle.MiddleText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:formattedTotal="@{viewModel.selectedCountry.totalDeaths}"
+                            app:layout_constraintBottom_toTopOf="@id/text_new_death"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            tools:text="Total: 1230033" />
+
+                        <TextView
+                            android:id="@+id/text_new_death"
+                            style="@style/cardStyle.BottomText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:formattedNew="@{viewModel.selectedCountry.newDeaths}"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            tools:text="New: 500" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_end_25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.75" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>
