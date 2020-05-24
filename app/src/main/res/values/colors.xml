@@ -10,4 +10,5 @@
     <color name="secondaryTextColor">#fafafa</color>
 
     <color name="textColorDark">#55008B</color>
+    <color name="overlay">#275700EC</color>
 </resources>

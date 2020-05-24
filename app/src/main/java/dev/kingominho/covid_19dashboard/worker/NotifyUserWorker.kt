@@ -49,7 +49,7 @@ class NotifyUserWorker (
 //        val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(appContext, channelId)
             .setColor(ContextCompat.getColor(appContext, R.color.primaryColor))
-            .setSmallIcon(R.drawable.ic_confirmed_24px)
+            .setSmallIcon(R.drawable.ic_alert)
             .setContentTitle(contentTitle)
             .setContentText(appContext.getString(R.string.last_updated_format, time))
             .setAutoCancel(true)

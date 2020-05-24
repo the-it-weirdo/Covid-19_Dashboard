@@ -72,26 +72,31 @@ class AboutViewModel : ViewModel() {
             )
         )
 
-//        list.add(AboutHeading("Resources used: "))
-//        list.add(
-//            AboutItem(
-//                "App Icon", "from PNG Repo",
-//                "https://www.pngrepo.com/svg/246093/diary"
-//            )
-//        )
-//        list.add(
-//            AboutItem(
-//                "Paper texture", "from Freepik",
-//                "http://www.freepik.com"
-//            )
-//        )
-//        list.add(
-//            AboutItem(
-//                "Emoji hex codes", "from EMOJIGUIDE.ORG",
-//                "https://emojiguide.org/"
-//            )
-//        )
-
+        list.add(AboutHeading("Resources used: "))
+        list.add(
+            AboutItem(
+                "App Icon: Coronavirus icon ", "by Icons8",
+                "https://icons8.com/icons/set/coronavirus"
+            )
+        )
+        list.add(
+            AboutItem(
+                "'Alert' Icon made by ", "Freepik",
+                "https://www.flaticon.com/"
+            )
+        )
+        list.add(
+            AboutItem(
+                "'Heart' Icon made by ", "Freepik",
+                "https://www.flaticon.com/"
+            )
+        )
+        list.add(
+            AboutItem(
+                "'Death' Icon made by ", "Freepik",
+                "https://www.flaticon.com/"
+            )
+        )
 
         list.add(AboutHeading("Special Thanks: "))
         list.add(
