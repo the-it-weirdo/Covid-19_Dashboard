@@ -40,6 +40,6 @@
     <fragment
         android:id="@+id/aboutFragment"
         android:name="dev.kingominho.covid_19dashboard.ui.about.AboutFragment"
-        android:label="@string/about_title"
+        android:label="@string/about"
         tools:layout="@layout/fragment_about"/>
 </navigation>
