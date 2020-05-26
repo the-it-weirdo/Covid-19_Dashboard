@@ -11,7 +11,7 @@
 ![GitHub watchers](https://img.shields.io/github/watchers/the-it-weirdo/Covid-19_Dashboard?style=social)
 
 
-**Covid-19 Dashboard** is a simple Android application 📱 which shouws the current case counts of various countries and also global case counts. It is built using *Modern Android development* tools. Dedicated to all Android Developers with ❤️. 
+**Covid-19 Dashboard** is a simple Android application 📱 which shows the current case counts of various countries and also global case counts. It is built using *Modern Android development* tools. Dedicated to all Android Developers with ❤️. 
 
 
 <table style="width:100%">
@@ -73,10 +73,7 @@ Thanks to
 
 ## Attributions
 
-- All icons: 
-  - <div>made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-
-
+- All icons: <div>made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
 
 ## License
