@@ -14,13 +14,13 @@ class AboutViewModel : ViewModel() {
     private fun initData():List<Any> {
         val list: MutableList<Any> = ArrayList()
 
-//        list.add(AboutHeading("Project repository"))
-//        list.add(
-//            AboutItem(
-//                "Mon Chéri Diario", "By KingoMinho",
-//                "https://github.com/the-it-weirdo/Mon_cheri_Diario"
-//            )
-//        )
+        list.add(AboutHeading("Project repository"))
+        list.add(
+            AboutItem(
+                "Covid-19 Dashboard", "By $kingoMinho",
+                "https://github.com/the-it-weirdo/Covid-19_Dashboard"
+            )
+        )
 
         list.add(AboutHeading("Built with: "))
         list.add(
@@ -75,26 +75,8 @@ class AboutViewModel : ViewModel() {
         list.add(AboutHeading("Resources used: "))
         list.add(
             AboutItem(
-                "App Icon: Coronavirus icon ", "by Icons8",
-                "https://icons8.com/icons/set/coronavirus"
-            )
-        )
-        list.add(
-            AboutItem(
-                "'Alert' Icon made by ", "Freepik",
-                "https://www.flaticon.com/"
-            )
-        )
-        list.add(
-            AboutItem(
-                "'Heart' Icon made by ", "Freepik",
-                "https://www.flaticon.com/"
-            )
-        )
-        list.add(
-            AboutItem(
-                "'Death' Icon made by ", "Freepik",
-                "https://www.flaticon.com/"
+                "All icons from  ", "Flaticon by Freepik",
+                "https://www.flaticon.com/authors/freepik"
             )
         )
 
