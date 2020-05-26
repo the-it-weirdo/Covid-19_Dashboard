@@ -30,7 +30,7 @@
 ## About
 - It simply loads **Total and New Confirmed cases, Recoverd cases and Deaths** from [API](https://covid19api.com/). 
 - It supports dark mode too 🌗.
-- It is offline capable (Locally stored using Room) 😃.
+- It is offline capable (Locally stored using Room).
 
 
 ## Built With 🛠
