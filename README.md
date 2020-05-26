@@ -57,9 +57,9 @@
     ├── repository                # Repository to handle data from network and local dabase
     |
     ├── ui                        # Activity and Fragments/View layer  
-    │   ├── about                 # About screen and supporting classes
-    │   ├── dashboard             # Dashboard screen and supporting classes
-    │   └── regionList            # Region List screen and supporting classes
+    │   ├── about                   # About screen and supporting classes
+    │   ├── dashboard               # Dashboard screen and supporting classes
+    │   └── regionList              # Region List screen and supporting classes
     ├── util                      # Utility Classes / Kotlin extensions
     ├── viewmodel                 # App viewmodel
     └── worker                    # Worker class.
